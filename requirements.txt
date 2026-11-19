@@ -1,0 +1,53 @@
+# ML Systems Portfolio — environment
+# Python 3.11 or 3.12. Install INSIDE WSL2 (Ubuntu) on both laptops — Triton and
+# vLLM do not run natively on Windows; they run in WSL/Linux on the same machines.
+#
+# PyTorch comes from the CUDA 12.8 wheel index: the RTX 5070 Ti and RTX Spark
+# (Blackwell, sm_120) need cu128+ wheels — the default PyPI torch build is too old.
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+# --- Core: training, compile, profiling (Weeks 1, 4, 8, 10) ---
+torch>=2.7.0
+torchvision>=0.22.0
+numpy>=1.26,<3.0
+pandas>=2.2
+matplotlib>=3.8
+scikit-learn>=1.5
+scipy>=1.13
+tqdm>=4.66
+tabulate>=0.9
+psutil>=6.0
+nvidia-ml-py>=12.560        # pynvml — benchmark harness reads GPU memory/power itself
+pytest>=8.0                 # harness + kernel correctness tests
+
+# --- Kernels (Weeks 2-3) — Linux/WSL only by platform marker ---
+triton>=3.3.0; sys_platform == "linux"
+
+# --- Pathology / vision vehicle (Weeks 1, 4) ---
+timm>=1.0.12                # ViT backbones (also required for Virchow in the pathology repo)
+onnx>=1.17
+onnxruntime-gpu>=1.20       # ONNX export checks + Jetson bundle path (ProNeuro)
+
+# --- LLM stack: fine-tuning + serving (Weeks 5-6) ---
+transformers>=4.48
+accelerate>=1.0
+peft>=0.14                  # QLoRA adapters (Smart SI track)
+safetensors>=0.4
+huggingface-hub>=0.27
+datasets>=3.0
+bitsandbytes>=0.45; sys_platform == "linux"   # 4-bit QLoRA / AWQ-side experiments, WSL only
+vllm>=0.8.0; sys_platform == "linux"          # serving benchmarks — WSL only, installs its own torch pin if needed
+
+# --- JAX (Week 7) ---
+# CPU build in this env: enough to learn jit/grad/vmap/pytree semantics locally
+# without fighting the CUDA plugin. GPU/TPU JAX runs in Google Colab (TPU v5e),
+# which provides its own jaxlib — do NOT install jax[cuda12] into this env.
+jax>=0.4.38
+optax>=0.2
+
+# NOT pip-installed here, by design:
+# - Nsight Systems / Nsight Compute: system installers from NVIDIA (profiling, Week 4)
+# - TensorRT: comes with JetPack on the Jetson; on the laptops it is version-locked
+#   to the CUDA toolkit — install only inside the Week 9 benchmark env if needed
+# - flash-attn: source builds on Blackwell/WSL are fragile; PyTorch SDPA is the
+#   baseline for every kernel/serving comparison in this portfolio

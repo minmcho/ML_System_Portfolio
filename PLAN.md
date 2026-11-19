@@ -78,3 +78,4 @@ Yes, the Spark is a named node in the plan, not a spare. Its edge over the 5070 
 
 ## Session log
 - 2026-11-19: Academy created at Min's request ("Both") in the ML Systems SME side chat, together with the Portfolio Map. Week 1 starts on Min's go — first drill: memory model of ViT-B by hand, then torch.compile graph-break hunt on the pathology training script.
+- 2026-11-19 (later): Repo live — Min created minmcho/ML_System_Portfolio, seed pushed and verified (head 6bd9c2f2). Min said "Start" — Week 1 STARTED. requirements.txt added to the repo root (cu128 wheel index for Blackwell, WSL-only markers for Triton/vLLM, CPU JAX locally with TPU in Colab). Drill 1 presented: ViT-B training memory model by hand.
