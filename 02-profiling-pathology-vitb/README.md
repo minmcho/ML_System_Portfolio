@@ -1,0 +1,2 @@
+# 02 — Profiling: Pathology ViT-B (Week 4, Project P1)
+Status: planned. Vehicle: ViT-B feature extraction + ABMIL training from github.com/minmcho/multi-agent-digital-pathology (ViT-B AUC 0.990 / r 0.98, 730 audited runs). Done when: torch.profiler + Nsight traces (before/after), top-5 kernels by time, ONE bottleneck proven from the trace and fixed, throughput gain measured — on 5070 Ti and, for the memory-ceiling contrast, on RTX Spark QSInfomatic03. Rubric: R04.

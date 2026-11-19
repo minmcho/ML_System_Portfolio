@@ -1,0 +1,2 @@
+# 03 — LLM Serving Benchmark (Weeks 5–6, Project P3)
+Status: planned. Done when: Qwen2.5-7B served three ways — vLLM (paged attention, continuous batching), Ollama, HF generate — with TTFT, TPOT and tokens/sec at concurrency 1/8/32 and the KV-cache memory ceiling recorded. Two memory regimes: AWQ 4-bit (~5 GB) on the 5070 Ti, FP16 (~16 GB) on the RTX Spark (20.6 GiB unified). Framing: the measured serving decision behind Smart SI's local-first default. Rubrics: R05, R06.

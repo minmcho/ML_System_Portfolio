@@ -1,0 +1,2 @@
+# 04 — JAX/TPU: ProNeuro-AD Head (Week 7, Project P5)
+Status: planned. Done when: the ProNeuro-AD PCA + ridge prediction head (coefficients/shapes exported from QSInfomatic03 — ADNI data never leaves that node) is ported to JAX, runs on Colab TPU v5e, and its StableHLO dump is committed with annotations Min can explain line by line. Source results: n=2,916 ridge AUC 0.82±0.03 / C-index 0.76±0.01 (github.com/minmcho/ProNeuro-AD). Rubric: R07.
