@@ -22,6 +22,7 @@ Hands-on ML systems work built in a 12-week ML Systems Academy (started 2026-11-
 | P5 | JAX/TPU port of the ProNeuro-AD prediction head, with annotated StableHLO | `04-jax-tpu-proneuro-head/` | Week 7 |
 | P4 | Cross-accelerator benchmark: one model, five targets (5070 Ti / Spark / Jetson / TPU / H100), same harness | `05-accelerator-benchmark/` | Week 9 |
 | R01–R12 | Evaluation rubrics, one per academy week | `rubrics/` | Weeks 1–12 |
+| P6 | Pathology WSI pipeline: biomedical AI design pipeline (tile → embed → Triton MIL pool → predict+audit → benchmark → package) for the BJBS paper — 40 CAMELYON17 slides × 1,000 patches, 3→6 backbones | `06-pathology-wsi-pipeline/` | Design drafted 2026-11-20 |
 
 ## Research this portfolio builds on (separate repos, linked not copied)
 - **ProNeuro-AD** — MRI prognostic AI for Alzheimer's on ADNI: github.com/minmcho/ProNeuro-AD — baseline n=2,916, FreeSurfer ridge amyloid AUC 0.82±0.03 / conversion C-index 0.76±0.01; deep table n=1,659 (learned features do not beat morphometry — a paired-evidence result).
